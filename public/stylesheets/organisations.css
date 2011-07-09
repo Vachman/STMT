@@ -1,18 +1,19 @@
-.staff-table {
+.organisations-table {
 	border-spacing:0;
 	padding: 0px 10px 0px 0px;
 }
 
-.staff-table tbody tr td{
+.organisations-table tbody tr td{
 	margin: 0px 0px;
 }
 
-#staff .content-main {
+#organisations .content-main {
 	width: 980px;
 	border: 0px;
 }
 
-.staff td:first-child {
+.organisation td:first-child {
+	padding-left: 8px;
 	border-left: 1px solid #d3d4da;
 	box-shadow: 0 1px 0px rgba(0, 0, 0, 0.3);
 	-moz-border-radius-topleft:7px;
@@ -23,7 +24,7 @@
 	border-bottom-left-radius:7px;
 }
 
-.staff td:last-child {
+.organisation td:last-child {
 	border-right: 1px solid #d3d4da;
 	box-shadow: 0 1px 0px rgba(0, 0, 0, 0.3);
 	-moz-border-radius-topright:7px;
@@ -34,16 +35,14 @@
 	border-bottom-right-radius:7px;
 }
 
-
-
-.staff td {
-	background: url("/images/staff/staff_bg.png") repeat-x scroll 0 0 #F5F6F7;
+.organisation td {
+	background: url("/images/organisations/organisation_bg.png") repeat-x scroll 0 0 #F5F6F7;
 	height: 27px;
 	box-shadow: 0 1px 0px rgba(0, 0, 0, 0.3);
 	border-bottom: 1px solid #bdbfc4;
 }
 
-.staff.selected td {
-	background: url("/images/staff/staff_selected_bg.png") repeat-x scroll 0 0 #e0e5f8;
+.organisation.selected td {
+	background: url("/images/organisations/organisation_selected_bg.png") repeat-x scroll 0 0 #F5F6F7;
 	box-shadow: 0 1px 0px rgba(0, 0, 0, 0.3);
 }

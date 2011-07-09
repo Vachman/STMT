@@ -1,15 +1,13 @@
 <%= stylesheet_link_tag "content_layout" %>
-<%= stylesheet_link_tag "partners" %>
-<%= javascript_include_tag "partners" %>
+<%= stylesheet_link_tag "organisations" %>
+<%= javascript_include_tag "organisations" %>
 
-<% content_for :page_title do -%>
-	<h2>Организации</h2>
-<% end -%>
 
-<div id="partners" class="content-warp rounded">
+<div id="organisations" class="content-warp rounded">
 	<div class="content-main">
-		<table class="partners-table">
+		<table class="organisations-table">
 			<thead>
+					<th></th>
 			    <th></th>
 			    <th></th>
 			    <th></th>
@@ -17,18 +15,15 @@
 			
 				<tbody>
 				<% @organisations.each do |organisation| %>
-				  <tr class="partner">
-				    <td><%= link_to organisation.name , organisation %></td>
+				  <tr class="organisation">
+						<td></td>
+				    <td><%= organisation.name %></td>
 				    <td><%= link_to image_tag("edit.png", :border=>0), edit_organisation_path(organisation) %></td>
 				    <td><%= link_to image_tag("delete.png", :border=>0), organisation, :confirm => 'Are you sure?', :method => :delete %></td>
 				  </tr>
 				<% end %>
 			</tbody>
 		</table>
-
-		
-		<footer class="content-main-menu">
-			<%= link_to image_tag("add.png", :border=>0), new_organisation_path %>
-		</footer>
+	
 	<div>
 </div>
