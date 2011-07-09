@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <title><%= content_for?(:title) ? yield(:title) : "STMT" %></title>
+    <%= stylesheet_link_tag \
+	"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application", "style", "demo_table_jui" %>
+		<%= stylesheet_link_tag "globalnav" %>
+
+		<%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js", "rails.js",
+	 "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "jquery.jeditable","application" %>
+	<%= javascript_include_tag "jquery.tools.min","jquery.dataTables" %>
+		<!--[if IE]>
+		    <script src=" http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<%= csrf_meta_tag %>
+    <%= yield(:head) %>
+	</head>
+	
+  <body>
+    
+		<% if content_for?(:header) %>
+			<%= yield :header %>
+		<% else %>
+			<nav id="globalheader">
+			 	<% if current_user %>
+					<ul id="globalnav">
+				 			<li>
+				 				<a class="" href="<%= doings_path %>">
+									<span>Дела</span>
+								</a>
+				 			</li>
+							<li>
+				 				<a class="" href="<%= gps_moduls_path %>">
+									<span>Стаф</span>
+								</a>
+							</li>
+							<li>
+				 				<a class="" href="<%= organisations_path %>">
+									<span>Люди</span>
+								</a>
+							</li>
+							<li>
+								<a class="" href="<%= logout_path %>">
+										<span>Выйти</span>
+								</a>
+							</li>
+				 		</ul>
+					<div id="globalsearch"></div>
+				<% else %>
+				  <ul id="globalnav">
+				 			<li>
+				 				<a class="" href="<%= login_path %>">
+									<span>Войти</span>
+								</a>
+							</li>
+						</ul>
+				<% end %>
+			</nav>
+		<% end %>
+		
+			
+		<%= content_for?(:pageheader) ? content_tag(:div, yield(:pageheader) , :id => "pageheader") : "" %>
+		
+		
+		<div id="main">
+			    
+				<% flash.each do |name, msg| %>
+					<%= content_tag :div, msg, :id => "flash_#{name}" %>
+				<% end %>
+
+				<%= yield %>
+		
+  	</div>
+		
+	<%= content_for?(:globalfooter) ? content_tag(:div, yield(:globalfooter) , :id => "globalfooter") : "" %>
+	</body>
+</html>

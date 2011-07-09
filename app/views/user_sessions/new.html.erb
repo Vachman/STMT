@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag "content_layout" %>
+<%= stylesheet_link_tag "login" %>
+
+<div id="login" class="content-warp rounded">	
+	<div id="login-warp" class="central">
+		<% content_for :page_title do -%>
+			<h2>Вход в систему</h1>
+		<% end -%>
+
+
+		<% form_for @user_session, :url => {:action => "create"} do |f| -%>
+		  <div class="field-container sprite">
+		  	<%#= content_tag	"div", :email ,{:class => "label-text"}  %>
+				<%= f.text_field :email, {:class => "field"} %>
+		  </div>
+	
+			<div class="field-container sprite">
+				<%#= content_tag	"div", :password ,{:class => "label-text"}  %>
+				<%= f.password_field  :password, {:class => "field"} %>
+			</div>
+		
+			<div id="" class="field-container">
+				<%= f.submit "Войти" %>
+			</div>	
+			
+		<% end -%>
+	</div>
+</div>
+
+

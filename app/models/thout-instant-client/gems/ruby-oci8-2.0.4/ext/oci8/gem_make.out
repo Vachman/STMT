@@ -1,0 +1,48 @@
+/usr/local/bin/ruby extconf.rb
+checking for load library path... 
+  LD_LIBRARY_PATH is not set.
+  checking ld.so.conf... no
+checking for cc... ok
+checking for gcc... yes
+checking for LP64... yes
+checking for ruby header... ok
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of
+necessary libraries and/or headers.  Check the mkmf.log file for more
+details.  You may need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/usr/local/bin/ruby
+	--with-instant-client
+	--without-instant-client
+./oraconf.rb:895:in `get_home': RuntimeError (RuntimeError)
+	from ./oraconf.rb:682:in `initialize'
+	from ./oraconf.rb:345:in `new'
+	from ./oraconf.rb:345:in `get'
+	from extconf.rb:18
+---------------------------------------------------
+Error Message:
+  Set the environment variable ORACLE_HOME if Oracle Full Client.
+  Append the path of Oracle client libraries to LD_LIBRARY_PATH if Oracle Instant Client.
+  
+Backtrace:
+  ./oraconf.rb:895:in `get_home'
+  ./oraconf.rb:682:in `initialize'
+  ./oraconf.rb:345:in `new'
+  ./oraconf.rb:345:in `get'
+  extconf.rb:18
+---------------------------------------------------
+See:
+ * http://ruby-oci8.rubyforge.org/en/HowToInstall.html
+ * http://ruby-oci8.rubyforge.org/en/ReportInstallProblem.html
+

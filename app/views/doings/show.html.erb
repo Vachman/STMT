@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Status:</b>
+  <%= @doing.status %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @doing.description %>
+</p>
+
+<p>
+  <b>Creator:</b>
+  <%= @doing.creator %>
+</p>
+
+<p>
+  <b>Parent:</b>
+  <%= @doing.parent %>
+</p>
+
+
+<%= link_to 'Edit', edit_doing_path(@doing) %> |
+<%= link_to 'Back', doings_path %>

@@ -1,0 +1,258 @@
+html {
+    background-color: #FFFFFF;
+}
+
+
+html, body {
+    background: url("/images/gradient_texture20100901.jpg") repeat-x scroll 0 0 #F5F6F7;
+}
+
+body {
+    background-color: transparent;
+    color: #333333;
+    font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+}
+
+
+html, body, div, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, fieldset, input, abbr, article, aside, command, details, figcaption, figure, footer, header, hgroup, mark, meter, nav, output, progress, section, summary, time {
+    margin: 0;
+    padding: 0;
+}
+
+#globalheader, #globalheader #globalnav, #globalheader #globalnav li, #globalheader #globalnav li a {
+    height: 36px;
+}
+
+#globalheader {
+    background: url("/images/globalheader.png") repeat-x scroll 0 0 transparent;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    display: block;
+    font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+    height: 36px;
+    margin: 18px auto;
+    position: relative;
+    text-align: left;
+    width: 980px;
+    z-index: 9998;
+}
+
+#globalheader.globalheader-loaded #globalnav, #globalheader.globalheader-loaded #globalsearch, #globalheader.globalheader-loaded #globalsearch .reset, #globalheader.globalheader-loaded #sp-magnify * {
+    -moz-transition: width 0.3s ease-in-out 0s;
+}
+
+#globalheader #globalnav, #globalheader #globalsearch, #globalheader #g-search, #globalheader #sp-searchtext, #globalheader #sp-magnify, #globalheader #sp-magnify *, #globalheader #globalsearch .reset {
+    z-index: 0;
+}
+
+#globalheader #globalnav {
+    display: table;
+    float: left;
+    table-layout: fixed;
+    width: 408px;
+}
+
+#globalheader {
+    font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+    text-align: left;
+}
+
+#globalheader #globalnav li {
+    display: table-cell;
+    overflow: hidden;
+    width: 100%;
+		
+}
+
+ul {
+    list-style: none outside none;
+}
+
+#globalheader #globalnav li a, #globalheader #globalnav.tabs6-nosearch li a, #globalheader #globalnav.tabs7-nosearch li a, #globalheader #globalnav.nosearch li a, #globalheader #globalnav.tabs7 li a {
+    background: none repeat scroll 0 0 transparent;
+    width: auto;
+}
+
+#globalheader #globalnav li a {
+    -moz-border-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAQAAABTNcdGAAAAEUlEQVQIHWP4r8bA8F%2BKwQEADZUCf37PGokAAAAASUVORK5CYII%3D") 0 2 0 1;
+    border-width: 0 2px 0 1px;
+    display: block;
+    float: none;
+    text-decoration: none;
+}
+
+#globalheader #globalnav li a {
+    /*background: url("/images/globalnav.png") no-repeat scroll 0 0 transparent;*/
+    cursor: pointer;
+    float: left;
+    height: 36px;
+    overflow: hidden;
+    text-indent: 1px;
+    width: 102px;
+	
+}
+
+#globalheader #globalnav li a {
+    background-position: 100% 0;
+    outline: medium none;
+}
+
+#globalheader #globalnav li a {
+    text-decoration: none;
+}
+
+#globalheader #globalnav li a {
+    cursor: pointer;
+    text-indent: 1px;
+}
+
+#globalheader #globalnav li#gn-store a span {
+
+}
+
+#globalheader  #globalnav li a span {
+  text-align:	center;
+	vertical-align: super;
+	color: #FFFDDF;
+}
+
+#globalheader #globalnav li a span {
+
+    display: block;
+    height: 30px;
+		line-height: 27px;
+    margin: 3px auto;
+    width: 100%;
+}
+
+#globalheader #globalsearch {
+    /*-moz-border-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAQAAABTNcdGAAAADUlEQVQIHWP4r8YABgAJCwEmqyi5lgAAAABJRU5ErkJggg%3D%3D") 0 2 0 1;*/
+    background: none repeat scroll 0 0 transparent;
+    border-width: 0 2px 0 1px;
+    padding: 8px 13px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 154px;
+}
+
+#main {
+    overflow: visible;
+}
+
+#main {
+    clear: both;
+    color: #76797C;
+    margin: 0 0 10px;
+    min-width: 980px;
+    overflow: hidden;
+    width: 100%;
+}
+
+#main {
+    position: relative;
+    width: 100%;
+}
+
+#content, #main .content, #headlines, #homefooter {
+    margin: 0 auto 10px;
+    padding: 0;
+    width: 980px;
+}
+
+#productheader {
+    z-index: 10;
+}
+
+#productheader {
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 1em 0 0.2em;
+    width: 980px;
+}
+
+#productheader h1, #productheader h2 {
+    display: inline;
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    margin-bottom: 6px !important;
+    margin-left: 8px;
+    margin-right: 0;
+    margin-top: 1px;
+    padding: 0;
+}
+
+#sidebar {
+	float: left;
+  width: 168px;
+	border-right: 1px solid #999;
+}
+
+h2 {
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1.4;
+    margin-bottom: 0.3em;
+}
+
+.revealed #showcase .content {
+    position: static;
+}
+
+.loaded #showcase .content, .loaded #promobar, .loaded #itunes, .loaded #globalfooter {
+    opacity: 1;
+}
+
+#showcase .content {
+    -moz-transition-delay: 0.8s;
+}
+reveal.css (строка 16)
+#showcase .content, #promobar, #itunes, #globalfooter {
+    -moz-transition: opacity 0.5s ease 0s;
+    opacity: 0;
+}
+
+reveal.css (строка 4)
+#showcase .content {
+    color: #888888;
+    float: left;
+    height: 210px;
+    padding: 0;
+    width: 320px;
+}
+
+.content:nth-child(n) {
+    border: medium none;
+}
+
+.content {
+    font-size: 12px;
+}
+
+
+.content {
+    margin: 0 auto 18px;
+    padding: 4em 50px 2em;
+    width: 880px;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.content, .rounded, .article .box {
+    border-radius: 4px 4px 4px 4px;
+}
+
+.shadowbox {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #E5E5E5 #DBDBDB #D2D2D2;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+

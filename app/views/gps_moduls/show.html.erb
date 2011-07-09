@@ -1,0 +1,26 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Emei:</b>
+  <%= @gps_modul.imei %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @gps_modul.phone %>
+</p>
+
+<p>
+  <b>Car:</b>
+  <%= @gps_modul.car %>
+</p>
+
+<p>
+  <b>Organisation:</b>
+  <%= @gps_modul.organisation.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_gps_modul_path(@gps_modul) %> |
+<%= link_to 'Back', gps_moduls_path %>

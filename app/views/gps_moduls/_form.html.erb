@@ -1,0 +1,35 @@
+<%= form_for(@gps_modul) do |f| %>
+  <% if @gps_modul.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gps_modul.errors.count, "error") %> prohibited this gps_modul from being saved:</h2>
+
+      <ul>
+      <% @gps_modul.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "IMEI: 35335801* (7 знаков)" %><br />
+    <%= f.text_field :imei %>
+  </div>
+  <div class="field">
+    <%= f.label "Телефон: 9162286435" %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label "Машина" %><br />
+    <%= f.text_field :car %>
+  </div>
+  <div class="field">
+	
+    <%= f.label "Организация" %><br />
+    <%= collection_select(:gps_modul,:organisation_id, Organisation.all, :id, :name )  %>
+  </div>
+	<br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

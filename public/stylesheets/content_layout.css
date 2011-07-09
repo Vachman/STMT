@@ -1,0 +1,64 @@
+/* Content warp class */
+.content-warp {
+	width:980px;
+	height: 460px;
+	margin:0 auto;
+	background:#dde3eb;
+	
+}
+
+/* Content main block*/
+.content-main {
+	position: relative;
+	background: url("/images/gradient_texture20100901.jpg") repeat-x scroll 0 0 #F5F6F7;
+	float:right;
+	min-width: 80%;
+	height: 460px;
+	margin: 0px;
+	border-left: 1px solid #999;
+}
+
+/* Content menu block in main area */
+.content-main-menu {
+	position: absolute;
+	bottom: 0px;
+	line-height:66px;
+	height: 65px;
+	width: 100%;
+	border-top: 1px solid #999;
+	background:#e4e4e4;
+}
+
+.content-main-menu a {
+	margin: 0px 10px 0px 15px;
+}
+
+.content-main-menu a img{
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.content-main-header {
+	display: none;
+	min-height:25px;
+	margin-bottom: 10px;
+	background: url("/images/content/header.png") repeat-x scroll 0 0 #F5F6F7;
+}
+
+/* Content left sidebar */
+.content-sidebar {
+	float:left;
+	width:18%;
+	background:#dde3eb;
+}
+
+/* Content footer */
+.content-footer {
+	height: 20px;
+	clear:both;
+	background:#cc9;
+}
+* html #footer {
+	height:1px;
+}
+

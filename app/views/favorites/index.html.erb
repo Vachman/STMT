@@ -1,0 +1,54 @@
+<script>
+	function fnFilter(i)
+		{
+			$('#favorites').dataTable().fnFilter(i);
+		}
+
+	$(function() {
+		var oTable = $('#favorites').dataTable({	
+				"bPaginate": false,
+				"bLengthChange": false,
+				"bSort": false,
+				"bInfo": false,
+				"aoColumns": [
+						{  "bVisible": false },
+						{  "bVisible": true }
+					]
+				});
+	
+
+		
+	
+		$("#globalsearch").append($("#favorites_filter input"));
+		$("#favorites_filter").remove();
+		
+	});
+</script>
+
+
+
+	<div id="sidebar">
+		<p><%= link_to_function "All", :onclick => "fnFilter(\"\")"  %></p>
+		<% @favorite_types.each do |f| %>
+			<p><%= link_to_function "#{f.to_s}", :onclick => "fnFilter(\"#{f.to_s}\")"   %></p>
+		<% end %>
+	</div>
+
+	<div style="float: left; width: 800px;">
+		<table border="0" cellspacing="5" cellpadding="5" id="favorites">
+			<thead>
+				<tr>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+				<tbody>
+					<% @favorites.each do |@f| %>
+						<tr>
+							<td><%= @f.favoritable_type %></td>
+							<td><%= render :partial => "#{@f.favoritable.type.to_s.underscore.pluralize}/show_favorites.html.erb" %></td>
+						</tr>
+					<% end %>
+				</tbody>
+		</table>
+	</div>

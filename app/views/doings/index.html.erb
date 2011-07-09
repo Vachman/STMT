@@ -1,0 +1,54 @@
+<%= stylesheet_link_tag "content_layout" %>
+<%= stylesheet_link_tag "doings" %>
+
+<%= javascript_include_tag "doings" %>
+
+<div id="doings" class="content-warp rounded">
+
+	<div class="content-sidebar">
+		Sidebar
+	</div>
+
+	<div class="content-main" >
+		<header class="content-main-header">	
+			<% if content_for?(:content_main_header) -%>
+				<%= yield :content_main_header %>
+			<% end -%>
+		</header>
+
+		<table class="doings-table" >
+			<thead>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</thead>
+			
+			<tbody>
+				<% @doings.each do |doing| %>
+				  <tr class="doing">
+				    <td><%= check_box_tag(doing,"", !doing.status.to_i.zero?, \
+				"onclick" => "document.location.href='/doing/toggle_check/#{doing.id}'") %></td>
+				    <td><%= doing.description %></td>
+				    <td><%= doing.creator.email %></td>
+				    <td><%= link_to image_tag("edit.png", :border=>0), edit_doing_path(doing) %></td>
+				    <td><%= link_to image_tag("delete.png", :border=>0), doing, :confirm => 'Are you sure?', :method => :delete %></td>
+						<td><%= favorite(doing) %></td>
+					</tr>
+				<% end %>
+			<body>
+		</table>
+
+
+		<footer class="content-main-menu">
+			<%= link_to image_tag("add.png", :border=>0), new_doing_path %>
+		</footer>
+	</div>	
+	
+	<div class="content-footer">
+		footer
+	</div>
+
+</div>

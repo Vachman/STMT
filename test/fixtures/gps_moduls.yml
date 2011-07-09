@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  emei: MyString
+  phone: MyString
+  car: MyString
+  organisation: 
+
+two:
+  emei: MyString
+  phone: MyString
+  car: MyString
+  organisation: 

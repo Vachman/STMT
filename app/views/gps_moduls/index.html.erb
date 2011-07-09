@@ -1,0 +1,38 @@
+<%= stylesheet_link_tag "content_layout" %>
+<%= stylesheet_link_tag "staff" %>
+
+<%= javascript_include_tag "staff" %>
+
+
+<div class="content-warp rounded">
+	<div class="content-main">
+		<table id="gps_moduls" class="staff-table">
+		  <thead>
+		  	<tr>
+					<th></th>
+					<th>IMEI</th>
+			    <th>Телефон</th>
+			    <th>Машина</th>
+			    <th>Организация</th>
+					<th></th>		   
+				</tr>
+		  </thead>
+
+
+			<tbody>
+			<% @gps_moduls.each do |gps_modul| %>
+			  <tr class="staff">
+					<td><img src="images/info_show.png"/ class="info"></td>
+			    <td><%= gps_modul.imei %></td>
+			    <td><%= gps_modul.phone %></td>
+			    <td><%= gps_modul.car %></td>	   
+					<td><%= link_to gps_modul.organisation.name, organisation_path(gps_modul.organisation) %></td>
+			   	<td><%= favorite(gps_modul) %></td>
+			  </tr>
+			<% end %>
+			<tbody>
+		</table>
+	</div>
+
+
+</div>
