@@ -2,13 +2,11 @@
 <html>
 	<head>
     <title><%= content_for?(:title) ? yield(:title) : "STMT" %></title>
-    <%= stylesheet_link_tag \
-	"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application", "style", "demo_table_jui" %>
+    <%= stylesheet_link_tag "jquery-ui.css", "application", "style", "demo_table_jui" %>
 		<%= stylesheet_link_tag "globalnav" %>
 
-		<%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js", "rails.js",
-	 "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "jquery.jeditable","application" %>
-	<%= javascript_include_tag "jquery.tools.min","jquery.dataTables" %>
+		<%= javascript_include_tag  "jquery.min.js", "rails.js", "jquery-ui.min.js", "jquery.jeditable","application" %>
+		<%= javascript_include_tag "jquery.tools.min","jquery.dataTables" %>
 		<!--[if IE]>
 		    <script src=" http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->

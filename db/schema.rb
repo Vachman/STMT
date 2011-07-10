@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110709194014) do
+ActiveRecord::Schema.define(:version => 20110710105533) do
 
   create_table "cars", :force => true do |t|
     t.string   "reg_number"
@@ -55,6 +55,22 @@ ActiveRecord::Schema.define(:version => 20110709194014) do
     t.integer  "ora_id"
   end
 
+  create_table "people", :force => true do |t|
+    t.string   "name"
+    t.string   "lastname"
+    t.integer  "organisation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "phones", :force => true do |t|
+    t.string   "number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "phone_holder_id"
+    t.string   "phone_holder_type"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                             :null => false
     t.string   "crypted_password",                  :null => false
@@ -69,7 +85,6 @@ ActiveRecord::Schema.define(:version => 20110709194014) do
     t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "organisation_id"
   end
 
   # unrecognized index "index_users_on_email" with type ActiveRecord::ConnectionAdapters::IndexDefinition
