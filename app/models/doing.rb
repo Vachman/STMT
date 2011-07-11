@@ -13,9 +13,9 @@ class Doing < ActiveRecord::Base
   # Инициатор заявки (тот кому это надо)
   belongs_to :from, :class_name => "Person", :foreign_key => "from_person_id"
   # Управляющий заявкой (если заявка поручить)
-  belongs_to :manager, :class_name => "Person", :foreign_key => "manager_person_id"
+  belongs_to :manager, :class_name => "User", :foreign_key => "manager_user_id"
   # Испольнитель заявки (тот кто создал по умолчанию, или тот кому передали или поручили заявку)
-  belongs_to :executor, :class_name => "Person", :foreign_key => "executor_person_id"
+  belongs_to :executor, :class_name => "User", :foreign_key => "executor_user_id"
 
   # Поле создателя заявки обязательно
   validates_presence_of :creator_id, :message => "can't be without creator"

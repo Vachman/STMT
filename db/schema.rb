@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(:version => 20110711120234) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "from_person_id"
-    t.integer  "manager_person_id"
-    t.integer  "executor_person_id"
+    t.integer  "manager_user_id"
+    t.integer  "executor_user_id"
   end
 
   create_table "favorites", :force => true do |t|

@@ -1,5 +1,13 @@
 class Organisation < ActiveRecord::Base
+  
+  # У организации есть много модулей
   has_many :gps_moduls
+  
+  # В организации есть много сторудников
   has_many :employees, :class_name => "Person"
-  has_many :phones, :as => "phone_older"   
+  
+  # Организации может иметь много телефонных номеров
+  has_many :phones, :as => "phoneholder"   
+  
+  has_many :doings, :through => :employees
 end
