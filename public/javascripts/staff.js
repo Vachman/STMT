@@ -65,6 +65,7 @@ $(function() {
 	// DoubleClick to Staff
 	$('.staff').dblclick(function(){
 		alert("BDL FUCK YEAAA ")
+		window.location = $(this:first a).attr("href");
 	});
 
 });

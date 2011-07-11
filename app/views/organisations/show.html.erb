@@ -1,18 +1,22 @@
-<p id="notice"><%= notice %></p>
+<%= stylesheet_link_tag "content_layout" %>
 
-<p>
-  <b>Name:</b>
-  <%= @organisation.name %>
-</p>
-<p>
-  <b>Login:</b>
-  <%= @organisation.login %>
-</p>
-<p>
-  <b>Password:</b>
-  <%= @organisation.password %>
-</p>
+<div class="content-warp rounded">
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <b>Name:</b>
+	  <%= @organisation.name %>
+	</p>
+	<p>
+	  <b>Login:</b>
+	  <%= @organisation.login %>
+	</p>
+	<p>
+	  <b>Password:</b>
+	  <%= @organisation.password %>
+	</p>
 
 
-<%= link_to 'Edit', edit_organisation_path(@organisation) %> |
-<%= link_to 'Back', organisations_path %>
+	<%= link_to 'Edit', edit_organisation_path(@organisation) %> |
+	<%= link_to 'Back', organisations_path %>
+</div>

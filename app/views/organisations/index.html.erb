@@ -7,7 +7,7 @@
 	<div class="content-main">
 		<table class="organisations-table">
 			<thead>
-					<th></th>
+					<th ></th>
 			    <th></th>
 			    <th></th>
 			    <th></th>
@@ -15,8 +15,8 @@
 			
 				<tbody>
 				<% @organisations.each do |organisation| %>
-				  <tr class="organisation">
-						<td></td>
+				  <tr id="<%= organisation.id %>" class="organisation">
+						<td ><%= link_to '', organisation, { :style => "display:none"} %></td>
 				    <td><%= organisation.name %></td>
 				    <td><%= link_to image_tag("edit.png", :border=>0), edit_organisation_path(organisation) %></td>
 				    <td><%= link_to image_tag("delete.png", :border=>0), organisation, :confirm => 'Are you sure?', :method => :delete %></td>
