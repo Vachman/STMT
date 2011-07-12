@@ -1,14 +1,21 @@
 class GpsModulsController < ApplicationController
   before_filter :require_user
+
+  
   
   # GET /gps_moduls
   # GET /gps_moduls.xml
   def index
-    @gps_moduls = GpsModul.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @gps_moduls }
+    # Показываем модули конкретной организации или все модули если организация не уточнена
+    @gps_moduls = (params[:organisation_id] ? Organisation.find(params[:organisation_id]).gps_moduls.all : GpsModul.all)
+    
+    if request.xhr?
+      render :partial => "index"
+    else
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @gps_moduls }
+      end
     end
   end
 

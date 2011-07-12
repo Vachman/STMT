@@ -1,22 +1,60 @@
 <%= stylesheet_link_tag "content_layout" %>
+<%= stylesheet_link_tag "sidebar" %>
 
 <div class="content-warp rounded">
-	<p id="notice"><%= notice %></p>
+	
+	<div class="content-sidebar">
+		<nav id="organisationMenu" class="selectable-menu">
+			<header>Работники</header>
+			<li class="selected">
+				<%= link_to "Все", organisation_persons_path(@organisation), { :id =>"personSelecor", :class =>"selector"} %>
+			</li>
+		</nav>
+			
+		<nav id="staffMenu" class="selectable-menu">
+			<header>Стаф</header>
+			<li >
+				<%= link_to "Gps модули", organisation_gps_moduls_path(@organisation), { :id =>"gpsModulsSelector", :class =>"selector"} %>
+			</li>
+		</nav>
+		
+			<nav id="doingMenu" class="selectable-menu">
+				<header>Задачи</header>
+				<li >
+					<%= link_to "Все", organisation_doings_path(@organisation), { :id =>"doingSelector", :class =>"selector"} %>
+				</li>
+				<li>
+					<%= link_to "Со мной", organisation_doings_path(@organisation), { :id =>"myDoingsSelector", :class =>"filter"} %>
+				<li>
+			</nav>
+	</div>
+	
+	<div class="content-main">
+		<header >
 
-	<p>
-	  <b>Name:</b>
-	  <%= @organisation.name %>
-	</p>
-	<p>
-	  <b>Login:</b>
-	  <%= @organisation.login %>
-	</p>
-	<p>
-	  <b>Password:</b>
-	  <%= @organisation.password %>
-	</p>
+			<table>
+				<tbody>
+					<tr class="header-title">
+						<td><%= @organisation.name %></td>
+					</tr>
+					<% if @organisation.address? %>
+						<tr class="address">
+							<td><%= @organisation.address %></td>
+						</tr>
+					<% end %>
+					<tr class="phones">
+						
+					</tr>
+					<tr class="lagin_password">
+						<td><span><b>Логин: </b><%= @organisation.login %></span><span><b>Пароль: </b><%= @organisation.password %></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</header>
+		
+		<p id="notice"><%= notice %></p>
+		
+	</div>
+	
 
-
-	<%= link_to 'Edit', edit_organisation_path(@organisation) %> |
-	<%= link_to 'Back', organisations_path %>
 </div>

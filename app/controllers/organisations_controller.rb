@@ -1,15 +1,15 @@
 class OrganisationsController < ApplicationController
   before_filter :require_user
-  
+    
   # GET /organisations
   # GET /organisations.xml
   def index
     @organisations = Organisation.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @organisations }
     end
+    
   end
 
   # GET /organisations/1

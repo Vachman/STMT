@@ -1,7 +1,7 @@
 class Doing < ActiveRecord::Base
   
   # Кто создал заявку
-  belongs_to :creator, :class_name => "Person", :foreign_key => "creator_id"
+  belongs_to :creator, :class_name => "User", :foreign_key => "creator_id"
   
   #Множественные задачи пока не реализованны
   #belongs_to :parent, :class_name => "Doing"

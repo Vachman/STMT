@@ -26,7 +26,11 @@ $(function() {
 	
 	// DoubleClick to organisation
 	$('.organisation').dblclick(function(){
-		alert($(this).first().find("a").attr("href"));
+		
+		//$.post($(this).first().find("a").attr("href"), function(data) {
+		  //alert(data)
+		//});
+		
 		window.location = $(this).first().find("a").attr("href")
 	});
 	
