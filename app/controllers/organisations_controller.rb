@@ -59,14 +59,20 @@ class OrganisationsController < ApplicationController
   # PUT /organisations/1.xml
   def update
     @organisation = Organisation.find(params[:id])
-
-    respond_to do |format|
-      if @organisation.update_attributes(params[:organisation])
-        format.html { redirect_to(@organisation, :notice => 'Organisation was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @organisation.errors, :status => :unprocessable_entity }
+    
+    # Для мгновеннго редактирования контента с помощю jeditable
+    if request.xhr?
+      @organisation.update_attribute(params.keys.first,params[params.keys.first])
+      render :text => @organisation.address
+    else
+      respond_to do |format|
+        if @organisation.update_attributes(params[:organisation])
+          format.html { redirect_to(@organisation, :notice => 'Organisation was successfully updated.') }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @organisation.errors, :status => :unprocessable_entity }
+        end
       end
     end
   end

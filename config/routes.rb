@@ -16,7 +16,7 @@ Stmt::Application.routes.draw do
     resources :persons
     resources :doings
   end
-  
+  match 'organisations/update' => 'organisations#update', :as => :update
   
   resources :user_sessions
   

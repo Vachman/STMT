@@ -70,15 +70,33 @@
 .content-main header table tbody tr {
 	width: 100%;
 	background: url("/images/content/header_labels_bg.png") repeat-x scroll 0 0 #F5F6F7;
-	min-height: 24px;	
+	height: 24px;	
 }
 
 .content-main header table tbody tr td {
-	font: 12px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+	font: 11px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
 }
 
 .content-main header table tbody tr td span {
 	padding-right: 15px;
+}
+
+.edit_textfield {
+	display: inline;
+}
+
+.edit_textfield form{
+	display: inline;
+}
+
+.edit_textfield form input {
+	background: none repeat scroll 0 0 transparent;
+	outline: medium none;
+	border-width: 0;
+}
+
+.content-main header table tbody tr td span.label {
+	color: #b5b5b5;
 }
 
 .content-main header table tbody tr td:first-child {

@@ -37,16 +37,24 @@
 					<tr class="header-title">
 						<td><%= @organisation.name %></td>
 					</tr>
-					<% if @organisation.address? %>
-						<tr class="address">
-							<td><%= @organisation.address %></td>
-						</tr>
-					<% end %>
+
+					<tr class="address">
+						<td>
+							<span class="label">Адрес:</span>
+							<span class="edit_textfield" id="<%= @organisation.id %>" name="address"><%= @organisation.address %></span>
+						</td>
+					</tr>
+					
 					<tr class="phones">
-						
+						<td>
+							<span class="label">Контакты:</span>
+						</td>
 					</tr>
 					<tr class="lagin_password">
-						<td><span><b>Логин: </b><%= @organisation.login %></span><span><b>Пароль: </b><%= @organisation.password %></span></td>
+						<td>
+							<span class="label">Логин:</span><span><%= @organisation.login %></span>
+							<span class="label">Пароль:</span><span><%= @organisation.password %></span>
+						</td>
 					</tr>
 				</tbody>
 			</table>
