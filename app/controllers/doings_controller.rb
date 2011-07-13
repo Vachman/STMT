@@ -17,11 +17,27 @@ class DoingsController < ApplicationController
     end
   end
   
+  # Для полиморфии
+  def context
+    case params.keys.first
+      when "organisation_id"
+        Organisation.find(params[:organisation_id]).doings
+      when "gps_modul_id"
+        GpsModul.find(params[:gps_modul_id]).doings
+      when "person_id"
+        Person.find(params[:person_id]).doings
+      else
+        current_user.doings
+    end
+  end
+  
   # GET /doings
   # GET /doings.xml
   def index
-    @doings = Doing.all
-
+    @doings = context.all
+    puts "FUCK YEAAAAA"
+    puts @doings
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @doings }

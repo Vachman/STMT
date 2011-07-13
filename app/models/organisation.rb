@@ -9,5 +9,7 @@ class Organisation < ActiveRecord::Base
   # Организации может иметь много телефонных номеров
   has_many :phones, :as => "phoneholder"   
   
-  has_many :doings, :through => :persons
+  # Все задачи связанные с этой организацией
+  has_many :doings
+  
 end
