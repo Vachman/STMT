@@ -8,9 +8,7 @@ $(function() {
 			"bFilter": false,
 			"bSort": false,
 			"bLengthChange": false,
-			"sScrollY": "440px",
-			"sStripOdd": "AA",
-			"sStripEven": "BB"
+			"sScrollY": "440px"
 	});		
 });
 

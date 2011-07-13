@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag "content_layout" %>
 <%= stylesheet_link_tag "sidebar" %>
+<%= javascript_include_tag "sidebar" %>
 
 <div class="content-warp rounded">
 	
@@ -23,15 +24,11 @@
 				<li >
 					<%= link_to "Все", organisation_doings_path(@organisation), { :id =>"doingSelector", :class =>"selector"} %>
 				</li>
-				<li>
-					<%= link_to "Со мной", organisation_doings_path(@organisation), { :id =>"myDoingsSelector", :class =>"filter"} %>
-				<li>
 			</nav>
 	</div>
 	
 	<div class="content-main">
-		<header >
-
+		<header>
 			<table>
 				<tbody>
 					<tr class="header-title">
@@ -61,6 +58,11 @@
 		</header>
 		
 		<p id="notice"><%= notice %></p>
+		
+		<div class="result">
+		</div>
+		
+		
 		
 	</div>
 	

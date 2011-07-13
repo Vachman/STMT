@@ -4,10 +4,10 @@ class Organisation < ActiveRecord::Base
   has_many :gps_moduls
   
   # В организации есть много сторудников
-  has_many :employees, :class_name => "Person"
+  has_many :persons
   
   # Организации может иметь много телефонных номеров
   has_many :phones, :as => "phoneholder"   
   
-  has_many :doings, :through => :employees
+  has_many :doings, :through => :persons
 end

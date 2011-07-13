@@ -1,13 +1,13 @@
 <%= stylesheet_link_tag "content_layout" %>
-<%= stylesheet_link_tag "organisations" %>
-<%= javascript_include_tag "organisations" %>
+<%= stylesheet_link_tag "table" %>
+<%= javascript_include_tag "table" %>
 
 
 <div id="organisations" class="content-warp rounded">
-	<div class="content-main">
-		<table class="organisations-table">
+	<div class="content-main full">
+		<table class="data-table">
 			<thead>
-					<th ></th>
+					<th></th>
 			    <th></th>
 			    <th></th>
 			    <th></th>
@@ -15,7 +15,7 @@
 			
 				<tbody>
 				<% @organisations.each do |organisation| %>
-				  <tr id="<%= organisation.id %>" class="organisation">
+				  <tr id="<%= organisation.id %>" class="organisation dt-row">
 						<td ><%= link_to '', organisation, { :style => "display:none"} %></td>
 				    <td><%= organisation.name %></td>
 				    <td><%= link_to image_tag("edit.png", :border=>0), edit_organisation_path(organisation) %></td>

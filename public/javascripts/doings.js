@@ -8,7 +8,7 @@ $(function() {
 			"bFilter": false,
 			"bSort": false,
 			"bLengthChange": false,
-			"sScrollY": "200px",
+			"sScrollY": "392px",
 			"sStripOdd": "AA",
 			"sStripEven": "BB"
 	});

@@ -1,14 +1,14 @@
 <%= stylesheet_link_tag "content_layout" %>
-<%= stylesheet_link_tag "staff" %>
-
-<%= javascript_include_tag "staff" %>
+<%= stylesheet_link_tag "table" %>
+<%= javascript_include_tag "table" %>
 
 
 <div id="staff" class="content-warp rounded">
-	<div class="content-main">
-		<table id="gps_moduls" class="staff-table">
+	<div class="content-main full">
+		<table id="gps_moduls" class="data-table">
 		  <thead>
 		  	<tr>
+					<th></th>
 					<th></th>
 					<th>IMEI</th>
 			    <th>Телефон</th>
@@ -21,7 +21,8 @@
 
 			<tbody>
 			<% @gps_moduls.each do |gps_modul| %>
-			  <tr class="staff">
+			  <tr class="staff dt-row">
+					<td ><%= link_to '', gps_modul, { :style => "display:none"} %></td>
 					<td><img src="images/info_show.png"/ class="info"></td>
 			    <td><%= gps_modul.imei %></td>
 			    <td><%= gps_modul.phone %></td>

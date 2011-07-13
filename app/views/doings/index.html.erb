@@ -1,7 +1,6 @@
 <%= stylesheet_link_tag "content_layout" %>
-<%= stylesheet_link_tag "doings" %>
-
-<%= javascript_include_tag "doings" %>
+<%= stylesheet_link_tag "table" %>
+<%= javascript_include_tag "table" %>
 
 <div id="doings" class="content-warp rounded">
 
@@ -10,13 +9,7 @@
 	</div>
 
 	<div class="content-main" >
-		<header class="content-main-header">	
-			<% if content_for?(:content_main_header) -%>
-				<%= yield :content_main_header %>
-			<% end -%>
-		</header>
-
-		<table class="doings-table" >
+		<table class="data-table" >
 			<thead>
 				<th></th>
 				<th></th>
@@ -28,7 +21,7 @@
 			
 			<tbody>
 				<% @doings.each do |doing| %>
-				  <tr class="doing">
+				  <tr id="<%= doing.id %>" class="doing dt-row">
 				    <td><%= check_box_tag(doing,"", !doing.status.to_i.zero?, \
 				"onclick" => "document.location.href='/doing/toggle_check/#{doing.id}'") %></td>
 				    <td><%= doing.description %></td>

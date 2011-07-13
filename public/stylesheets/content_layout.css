@@ -12,7 +12,7 @@
 	position: relative;
 	background: url("/images/gradient_texture20100901.jpg") repeat-x scroll 0 0 #F5F6F7;
 	float:right;
-	min-width: 804px;
+	width: 804px;
 	height: 460px;
 	margin: 0px;
 	border-left: 1px solid #999;
