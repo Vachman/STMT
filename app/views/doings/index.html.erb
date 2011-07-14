@@ -2,46 +2,21 @@
 <%= stylesheet_link_tag "table" %>
 <%= stylesheet_link_tag "sidebar" %>
 <%= javascript_include_tag "table" %>
+<%= javascript_include_tag "sidebar" %>
 
 <div id="doings" class="content-warp rounded">
 
 	<div class="content-sidebar">		
 			<nav id="doingMenu" class="selectable-menu">
 				<header>Задачи</header>
-				<li >
-					<%#= link_to "Все", organisation_doings_path(@organisation), { :id =>"doingSelector", :class =>"selector"} %>
+				<li class="selected">
+					<%= link_to "Все", doings_path, { :id =>"doingSelector", :class =>"selector"} %>
 				</li>
 			</nav>
 	</div>
 
 	<div class="content-main" >
-		<table class="data-table" >
-			<thead style="display:none;">
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-			</thead>
-			
-			<tbody>
-				<% @doings.each do |doing| %>
-				  <tr id="<%= doing.id %>" class="doing dt-row">
-				    <td><%= check_box_tag(doing,"", !doing.status.to_i.zero?, \
-				"onclick" => "document.location.href='/doing/toggle_check/#{doing.id}'") %></td>
-				    <td><%= doing.description %></td>
-				    <td><%= doing.creator.email %></td>
-				    <td><%= link_to image_tag("delete.png", :border=>0), doing, :confirm => 'Are you sure?', :method => :delete %></td>
-						<td><%= favorite(doing) %></td>
-					</tr>
-				<% end %>
-			<body>
-		</table>
-
-
-		<footer class="content-main-menu">
-			<%= link_to image_tag("add.png", :border=>0), new_doing_path %>
-		</footer>
+		 <div class="result"></div>
 	</div>	
 	
 	<div class="content-footer">

@@ -1,6 +1,10 @@
 class DoingsController < ApplicationController
   before_filter :require_user
   
+  def dbgtxt(text, color_code=31)
+    puts "\e[#{color_code}m#{text}\e[0m"
+  end
+  
   # Toggle check Doing status
   def toggle_check
     @doing = Doing.find(params[:id])
@@ -19,14 +23,17 @@ class DoingsController < ApplicationController
   
   # Для полиморфии
   def context
-    case params.keys.first
-      when "organisation_id"
-        Organisation.find(params[:organisation_id]).doings
-      when "gps_modul_id"
+    if params[:gps_modul_id]
+        dbgtxt "GPS MODULS  #{params[:gps_modul_id]}"
         GpsModul.find(params[:gps_modul_id]).doings
-      when "person_id"
+    elsif params[:organisation_id]
+        dbgtxt "Organisation  #{params[:organisation_id]}"
+        Organisation.find(params[:organisation_id]).doings    
+    elsif params[:person_id]
+        dbgtxt "Person  #{params[:person_id]}"
         Person.find(params[:person_id]).doings
-      else
+    else
+        dbgtxt "USERRRRR"                  
         current_user.doings
     end
   end
@@ -34,13 +41,15 @@ class DoingsController < ApplicationController
   # GET /doings
   # GET /doings.xml
   def index
-    @doings = context.all
-    puts "FUCK YEAAAAA"
-    puts @doings
+    @doings = context.all  
     
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @doings }
+    if request.xhr?
+      render :partial => "index"
+    else
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @doings }
+      end
     end
   end
 

@@ -3,6 +3,8 @@ class GpsModul < ActiveRecord::Base
   
   has_many :favorites, :as => :favoritable
   
+  has_many :doings
+  
   validates_numericality_of :imei, :message => "is not a number"
   validates_length_of :imei, :is => 15, :message => "must be present 15 digits"
   

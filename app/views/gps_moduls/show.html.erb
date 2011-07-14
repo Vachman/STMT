@@ -1,26 +1,58 @@
+<%= stylesheet_link_tag "content_layout" %>
+<%= stylesheet_link_tag "sidebar" %>
+<%= javascript_include_tag "sidebar" %>
 
-<p id="notice"><%= notice %></p>
+<div class="content-warp rounded">
+	
+	<div class="content-sidebar">
+			<nav id="doingMenu" class="selectable-menu">
+				<header>Задачи</header>
+				<li class="selected">
+					<%= link_to "Все", gps_modul_doings_path(@gps_modul), { :id =>"doingSelector", :class =>"selector"} %>
+				</li>
+			</nav>
+	</div>
+	
+	<div class="content-main">
+		<header>
+			<table>
+				<tbody>
+					<tr class="header-title">
+						<td>
+							<span class="label">IMEI:</span><span><%= @gps_modul.imei %></span>
+							<span class="label">Госномер:</span>
+							<span class="edit_textfield" id="<%= @gps_modul.id %>" name="car"><%= @gps_modul.car %></span>
+						</td>
+					</tr>
 
-<p>
-  <b>Emei:</b>
-  <%= @gps_modul.imei %>
-</p>
+					<tr class="phone">
+						<td>
+							<span class="label">SIM Карта:</span>
+							<span class="edit_textfield" id="<%= @gps_modul.id %>" name="phone"><%= @gps_modul.phone %></span>
+						</td>
+					</tr>
+					
+					<tr class="phones">
+						<td>
+							<span class="label">Организация:</span>
+							<span><%= link_to @gps_modul.organisation.name ,organisation_path(@gps_modul.organisation) %></span>
+						</td>
+					</tr>
+					<tr class="lagin_password">
+						<td>
+							<span class="label">Логин:</span><span><%#= @organisation.login %></span>
+							<span class="label">Пароль:</span><span><%#= @organisation.password %></span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</header>
+		
+		<p id="notice"><%= notice %></p>
+		
+		<div class="result">
+		</div>
 
-<p>
-  <b>Phone:</b>
-  <%= @gps_modul.phone %>
-</p>
+	</div>
 
-<p>
-  <b>Car:</b>
-  <%= @gps_modul.car %>
-</p>
-
-<p>
-  <b>Organisation:</b>
-  <%= @gps_modul.organisation.name %>
-</p>
-
-
-<%= link_to 'Edit', edit_gps_modul_path(@gps_modul) %> |
-<%= link_to 'Back', gps_moduls_path %>
+</div>
