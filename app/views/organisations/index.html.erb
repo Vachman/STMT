@@ -10,7 +10,6 @@
 					<th></th>
 			    <th></th>
 			    <th></th>
-			    <th></th>
 			</thead>
 			
 				<tbody>
@@ -18,8 +17,7 @@
 				  <tr id="<%= organisation.id %>" class="organisation dt-row">
 						<td ><%= link_to '', organisation, { :style => "display:none"} %></td>
 				    <td><%= organisation.name %></td>
-				    <td><%= link_to image_tag("edit.png", :border=>0), edit_organisation_path(organisation) %></td>
-				    <td><%= link_to image_tag("delete.png", :border=>0), organisation, :confirm => 'Are you sure?', :method => :delete %></td>
+				    <td><%#= link_to '', organisation, { :class => "delete", :method => :delete, :remote => "true" } %></td>
 				  </tr>
 				<% end %>
 			</tbody>
