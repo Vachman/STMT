@@ -1,10 +1,5 @@
-<%= stylesheet_link_tag "content_layout" %>
-<%= stylesheet_link_tag "table" %>
-<%= javascript_include_tag "table" %>
-
-
 <div id="staff" class="content-warp rounded">
-	<div class="content-main full">
+	<div class="content-main full">		
 		<table id="gps_moduls" class="data-table">
 		  <thead style="display:none;">
 		  	<tr>
@@ -22,7 +17,7 @@
 			<% @gps_moduls.each do |gps_modul| %>
 			  <tr class="staff dt-row" onclick="selectRow(this)" ondblclick="dbclkRow(this)">
 					<td ><%= link_to '', gps_modul, { :style => "display:none"} %></td>
-					<td><img src="images/info_show.png"/ class="info"></td>
+					<td></td>
 			    <td><%= gps_modul.imei %></td>
 			    <td><%= gps_modul.phone %></td>
 			    <td><%= gps_modul.car %></td>	   
@@ -30,9 +25,11 @@
 			   	<td><%= favorite(gps_modul) %></td>
 			  </tr>
 			<% end %>
-			<tbody>
+			</tbody>
 		</table>
+		</div>
 	</div>
 
-
-</div>
+<%= stylesheet_link_tag "content_layout" %>		
+<%= stylesheet_link_tag "table" %>
+<%= javascript_include_tag "table" %>

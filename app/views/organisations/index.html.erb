@@ -1,6 +1,4 @@
-<%= stylesheet_link_tag "content_layout" %>
-<%= stylesheet_link_tag "table" %>
-<%= javascript_include_tag "table" %>
+
 
 
 <div id="organisations" class="content-warp rounded">
@@ -9,14 +7,12 @@
 			<thead style="display: none;">
 					<th></th>
 			    <th></th>
-			    <th></th>
 			</thead>
 			
 			<tbody>
 				<% @organisations.each do |organisation| %>
 				  <tr id="<%= organisation.id %>" class="organisation dt-row" onclick="selectRow(this)" ondblclick="dbclkRow(this)">
-						<td ><%= link_to '', organisation, { :style => "display:none"} %></td>
-				    <td><%= organisation.name %></td>
+						<td ><%= link_to '', organisation, { :style => "display:none"} %><%= organisation.name %></td>
 				    <td><%#= link_to '', organisation, { :class => "delete", :method => :delete, :remote => "true" } %></td>
 				  </tr>
 				<% end %>
@@ -25,3 +21,7 @@
 	
 	<div>
 </div>
+
+<%= stylesheet_link_tag "content_layout" %>
+<%= stylesheet_link_tag "table" %>
+<%= javascript_include_tag "table" %>
