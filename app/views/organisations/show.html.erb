@@ -38,7 +38,7 @@
 					<tr class="address">
 						<td>
 							<span class="label">Адрес:</span>
-							<span class="edit_textfield" id="<%= @organisation.id %>" name="address"><%= @organisation.address %></span>
+							<%= editable_field(@organisation, "address") %>
 						</td>
 					</tr>
 					

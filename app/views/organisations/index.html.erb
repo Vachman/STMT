@@ -12,9 +12,9 @@
 			    <th></th>
 			</thead>
 			
-				<tbody>
+			<tbody>
 				<% @organisations.each do |organisation| %>
-				  <tr id="<%= organisation.id %>" class="organisation dt-row">
+				  <tr id="<%= organisation.id %>" class="organisation dt-row" onclick="selectRow(this)" ondblclick="dbclkRow(this)">
 						<td ><%= link_to '', organisation, { :style => "display:none"} %></td>
 				    <td><%= organisation.name %></td>
 				    <td><%#= link_to '', organisation, { :class => "delete", :method => :delete, :remote => "true" } %></td>

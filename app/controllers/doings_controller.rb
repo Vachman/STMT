@@ -17,7 +17,9 @@ class DoingsController < ApplicationController
     if @doing.save
       redirect_to(:action => "index")
     else
-      render_text "Couldn't update item" 
+      p @doing.errors
+      p @doing.from
+      render :text => "Couldn't update item" 
     end
   end
   
@@ -41,7 +43,7 @@ class DoingsController < ApplicationController
   # GET /doings
   # GET /doings.xml
   def index
-    @doings = context.all  
+    @doings = context
     
     if request.xhr?
       render :partial => "index"

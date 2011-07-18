@@ -20,7 +20,7 @@
 
 			<tbody>
 			<% @gps_moduls.each do |gps_modul| %>
-			  <tr class="staff dt-row">
+			  <tr class="staff dt-row" onclick="selectRow(this)" ondblclick="dbclkRow(this)">
 					<td ><%= link_to '', gps_modul, { :style => "display:none"} %></td>
 					<td><img src="images/info_show.png"/ class="info"></td>
 			    <td><%= gps_modul.imei %></td>

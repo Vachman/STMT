@@ -7,11 +7,12 @@ Stmt::Application.routes.draw do
     resources :doings
   end
   
-  resources :persons do
+
+  resources :persons  do
     resources :doings
   end
   match 'persons/update' => 'persons#update', :as => :update
-
+ resources :persons, :as => "people" 
 
   resources :organisations do
     resources :gps_moduls

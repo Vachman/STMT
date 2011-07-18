@@ -23,6 +23,4 @@ class Doing < ActiveRecord::Base
   validates_presence_of :from, :message => "can't be blank"
   # Поле исполнителя обьязательна (в системе не может существовать ничьих заявок, за которых не кто не ответсвенен)
   validates_presence_of :executor, :message => "can't be blank"
-  
-  
 end

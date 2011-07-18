@@ -3,28 +3,23 @@
 
 function update_url(field){
 	if ($(field).attr('update_url') !== undefined) {
-		return $(field).attr('update_url')+'/'
+		return $(field).attr('update_url')+'/update'
 	} 
 	else {
-		return ''
+		return "update"
 	}	
 }
-function editable(){
-	$(".edit_textfield").each( function(i) {
-	  $(this).editable(  update_url(this)+"update", {
+
+function editable_field(field){
+	$(field).editable( update_url(field),{
 	         type      : 'text',
 	         rows      : 8,
-	         name : $(this).attr('name'),
-			 width:($(this).width() + 200) + "px",
+	         name : $(field).attr('name'),
+			 width: ($(field).width() + 100) + "px",
 	         cancel    : '',
 	         submit    : '',
 	         indicator : "<img src='../images/loading.gif' />",
 	         tooltip   : 'Click to edit...'
-	     })
 	 });
 }
-
-jQuery(document).ready(function($) {
-	editable();
-});
 

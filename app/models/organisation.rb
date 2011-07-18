@@ -14,8 +14,9 @@ class Organisation < ActiveRecord::Base
   has_many :person_doings, :through => :persons, :source => :doings
   
   def doings
-    mas = self.self_doings
-    mas << self.person_doings
+   self.self_doings  << self.person_doings
+ #   mas << self.self_doings
+ #   mas << self.person_doings
   end
 
 end
