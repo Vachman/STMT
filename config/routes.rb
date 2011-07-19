@@ -2,6 +2,7 @@ Stmt::Application.routes.draw do
   
   resources :doings
   match "/doing/toggle_check/:id" => "doings#toggle_check"
+  match 'doings/update' => 'doings#update', :as => :update
   
   resources :gps_moduls do
     resources :doings
@@ -12,7 +13,7 @@ Stmt::Application.routes.draw do
     resources :doings
   end
   match 'persons/update' => 'persons#update', :as => :update
- resources :persons, :as => "people" 
+  resources :persons, :as => "people" 
 
   resources :organisations do
     resources :gps_moduls

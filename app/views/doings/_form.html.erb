@@ -1,22 +1,8 @@
-<%= form_for(@doing) do |f| %>
-  <% if @doing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@doing.errors.count, "error") %> prohibited this doing from being saved:</h2>
-
-      <ul>
-      <% @doing.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<tr class="doing dt-row" onclick="selectRow(this)" ondblclick="//dbclkRow(this)">
+	<td>
+		<%= link_to '', @doing, { :style => "display:none"} %>
+		<%= check_box_tag(@doing,"", !@doing.status.to_i.zero?, {"onclick" => "document.location.href='/doing/toggle_check/#{@doing.id}'", :remote => "true" }) %>
+		<%= editable_field( @doing, "description") %>
+	</td>
+	<td><%= delete_tag @doing %></td>
+</tr>

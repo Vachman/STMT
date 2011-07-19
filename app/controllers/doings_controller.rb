@@ -15,7 +15,7 @@ class DoingsController < ApplicationController
     @doing.status = @doing.status.to_i.zero?
     
     if @doing.save
-      redirect_to(:action => "index")
+      render :text => "ok"
     else
       p @doing.errors
       p @doing.from
@@ -27,24 +27,25 @@ class DoingsController < ApplicationController
   def context
     if params[:gps_modul_id]
         dbgtxt "GPS MODULS  #{params[:gps_modul_id]}"
-        GpsModul.find(params[:gps_modul_id]).doings
+        GpsModul.find(params[:gps_modul_id])
     elsif params[:organisation_id]
         dbgtxt "Organisation  #{params[:organisation_id]}"
-        Organisation.find(params[:organisation_id]).doings    
+        Organisation.find(params[:organisation_id])    
     elsif params[:person_id]
         dbgtxt "Person  #{params[:person_id]}"
-        Person.find(params[:person_id]).doings
+        Person.find(params[:person_id])
     else
-        dbgtxt "USERRRRR"                  
-        current_user.doings
+      #  dbgtxt "USERRRRR"                  
+        current_user
     end
   end
   
   # GET /doings
   # GET /doings.xml
   def index
-    @doings = context
-    
+    dbgtxt context.type
+    @doings = context.doings
+    @context = context
     if request.xhr?
       render :partial => "index"
     else
@@ -70,11 +71,21 @@ class DoingsController < ApplicationController
   # GET /doings/new.xml
   def new
     @doing = Doing.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @doing }
+    @doing.creator = current_user 
+    @doing.executor = current_user
+    @doing.description = "Новая задача"
+    @doing.from = context if context.type.to_s == 'People'
+    @doing.organisation = context if context.type.to_s == 'Organisation'
+    @doing.gps_modul = context if context.type.to_s == 'GpsModul'
+    
+    if request.xhr?
+      dbgtxt "NEW"
+      render :partial => "form" if @doing.save
     end
+    #respond_to do |format|
+    #format.html # new.html.erb
+    #format.xml  { render :xml => @doing }
+    #end
   end
 
   # GET /doings/1/edit
@@ -86,32 +97,41 @@ class DoingsController < ApplicationController
   # POST /doings.xml
   def create
     @doing = Doing.new(params[:doing])
-    @doing.creator = current_user ? current_user : nil
-    respond_to do |format|
-      if @doing.save
-        format.html { redirect_to(@doing, :notice => 'Doing was successfully created.') }
-        format.xml  { render :xml => @doing, :status => :created, :location => @doing }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @doing.errors, :status => :unprocessable_entity }
-      end
-    end
+  # respond_to do |format|
+  #   if @doing.save
+  #    format.html { redirect_to(@doing, :notice => 'Doing was successfully created.') }
+  #    format.xml  { render :xml => @doing, :status => :created, :location => @doing }
+  #  else
+  #   format.html { render :action => "new" }
+  #    format.xml  { render :xml => @doing.errors, :status => :unprocessable_entity }
+  #  end
+  # end
   end
 
   # PUT /doings/1
   # PUT /doings/1.xml
   def update
     @doing = Doing.find(params[:id])
-
-    respond_to do |format|
-      if @doing.update_attributes(params[:doing])
-        format.html { redirect_to(@doing, :notice => 'Doing was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @doing.errors, :status => :unprocessable_entity }
-      end
+      
+    if request.xhr?
+      @doing = Doing.find(params[:id])
+      dbgtxt "Doing #{@doing.id} UPDATE"
+      params.delete("id")
+      params.delete("action")
+      params.delete("controller")
+      @doing.update_attribute(params.keys.first,params[params.keys.first])
+      render :text => @doing.attribute_for_inspect(params.keys.first).delete('"')  
     end
+   
+   # respond_to do |format|
+   #   if @doing.update_attributes(params[:doing])
+   #     format.html { redirect_to(@doing, :notice => 'Doing was successfully updated.') }
+   #     format.xml  { head :ok }
+   #   else
+   #     format.html { render :action => "edit" }
+   #     format.xml  { render :xml => @doing.errors, :status => :unprocessable_entity }
+   #   end
+   # end
   end
 
   # DELETE /doings/1

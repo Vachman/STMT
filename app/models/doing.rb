@@ -16,11 +16,15 @@ class Doing < ActiveRecord::Base
   belongs_to :manager, :class_name => "User", :foreign_key => "manager_user_id"
   # Испольнитель заявки (тот кто создал по умолчанию, или тот кому передали или поручили заявку)
   belongs_to :executor, :class_name => "User", :foreign_key => "executor_user_id"
+  # Организвция
+  belongs_to :organisation
+  # Модуль которому пренадлежит тикет
+  belongs_to :gps_modul
 
   # Поле создателя заявки обязательно
   validates_presence_of :creator_id, :message => "can't be without creator"
   # Поле инициатора обьязательно (иначе кому нужна эта заявка)
-  validates_presence_of :from, :message => "can't be blank"
+  # validates_presence_of :from, :message => "can't be blank"
   # Поле исполнителя обьязательна (в системе не может существовать ничьих заявок, за которых не кто не ответсвенен)
   validates_presence_of :executor, :message => "can't be blank"
 end

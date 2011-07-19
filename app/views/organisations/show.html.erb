@@ -39,6 +39,9 @@
 						<td>
 							<span class="label">Адрес:</span>
 							<%= editable_field(@organisation, "address") %>
+							<% if !@organisation.address.nil? %>
+								<%= link_to 'На карте...', "http://www.google.ru/maps?hl=ru&q="+@organisation.address.gsub(' ','+') , :target => "_blank"  %>
+							<% end %>
 						</td>
 					</tr>
 					

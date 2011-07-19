@@ -10,6 +10,10 @@ function update_url(field){
 	}	
 }
 
+function chekBoxToggle(href) {
+	$.get(href);
+}
+
 function editable_field(field){
 	$(field).editable( update_url(field),{
 	         type      : 'text',
@@ -18,7 +22,7 @@ function editable_field(field){
 			 width: ($(field).width() + 100) + "px",
 	         cancel    : '',
 	         submit    : '',
-	         indicator : "<img src='../images/loading.gif' />",
+	         indicator : "<img src='../images/loading.gif'/>",
 	         tooltip   : 'Click to edit...'
 	 });
 }
